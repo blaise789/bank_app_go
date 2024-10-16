@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func sayHelloPointer(s *string) {
 	fmt.Println(s)
@@ -52,6 +54,13 @@ func main() {
 	if isDayoff {
 		fmt.Println("it is a day off")
 	}
+	a:=6
+	if a==6{
+		fmt.Println("this works ")
+	}
+	if a>5{
+		fmt.Println("this also works")
+	}
 	var permission string = ""
 	switch permission {
 	case "admin":
@@ -66,4 +75,17 @@ func main() {
 		fmt.Println("no permission")
 
 	}
+	// temperature_converter
+	// enter temperature
+	var temperature float64;
+	var unit,targetUnit  string;
+	fmt.Println("temperature Converter!")
+	fmt.Print("Enter temperature: ")
+	fmt.Scan(&temperature)
+	fmt.Print("Enter current unit (C,F,K): ")
+	fmt.Scan(&unit)
+	fmt.Print("Enter target unit (C,F,K): ")
+	fmt.Scan(&targetUnit)
+    temperature= temperatureConverter(temperature, unit, targetUnit)
+	fmt.Println("your new temperature is",temperature)
 }
