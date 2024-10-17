@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-func temperatureConverter(temperature float64, currentUnit string, targetUnit string) float64 {
+func temperatureConverter(temperature float64, currentUnit string, targetUnit string) (float64,error ){
+
 	switch currentUnit {
 	case "C":
 		switch targetUnit {
@@ -14,7 +18,7 @@ func temperatureConverter(temperature float64, currentUnit string, targetUnit st
 			fmt.Println("invalid target unit")
 
 		}
-		return temperature
+		return temperature,nil
 
 	case "F":
 		switch targetUnit {
@@ -24,7 +28,7 @@ func temperatureConverter(temperature float64, currentUnit string, targetUnit st
 			temperature = (temperature - 273.15)
 
 		}
-		return temperature
+		return temperature,nil
 	case "K":
 		switch targetUnit {
 		case "C":
@@ -32,10 +36,10 @@ func temperatureConverter(temperature float64, currentUnit string, targetUnit st
 		case "F":
 			temperature = (temperature * 9 / 5) - 459.67
 		}
-		return temperature
+		return temperature,nil
 	default:
 		fmt.Println("invalid temperature unit")
-        return 0	
+        return 0,errors.New("invalid target unit")
 
 	}
 
