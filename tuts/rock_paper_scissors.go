@@ -1,11 +1,13 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math/rand"
+	"slices"
 	"strings"
 )
-func playRockPaperScissors(){
+func playRockPaperScissors() error{
 	rounds:=3
 	for i:=0; i<=rounds;i++{
 	compRandomNum:=rand.Intn(3)
@@ -21,6 +23,10 @@ func playRockPaperScissors(){
 		fmt.Print("enter your choice(Rock,Paper,Scissors)")
 		var usersChoice string
 		fmt.Scanln(&usersChoice)
+		if (!slices.Contains([]string{"rock", "paper", "scissors"},usersChoice)){
+			return errors.New("invalid input")
+
+		}
 		usersChoice=strings.ToLower(usersChoice)     
 		switch {
 		case usersChoice==computerChoice:
@@ -39,7 +45,7 @@ func playRockPaperScissors(){
 			
      
 	}
-	
+	return nil
 	}
 
 
