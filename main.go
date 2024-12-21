@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	 "github.com/blaise789/bank_app_go/tuts/bnk"
+	 "github.com/blaise789/bank_app_go/bnk"
 )
 
 
